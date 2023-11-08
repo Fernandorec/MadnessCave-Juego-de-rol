@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MadnessCave</title>
+    <link rel="stylesheet" href="estilos.css"> <!-- Ajusta la ruta a tu hoja de estilos CSS si es necesario -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="/imagenes/icon.png
+    " type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <style>
+
+body {
+    width: 80%;
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+}
+
+body {
+    background-image: url("/imagenes/cavebata.png"); /* Establece la imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen de fondo para cubrir todo el cuerpo */
+    background-position: center; /* Ajusta la posición de la imagen de fondo al centro */
+   
+        
+}
+
+#ladron{
+    position: static;
+    width: 150px;
+    margin-top: 50px;
+    margin-left: 900px;
+}
+
+#link{
+    position:static;
+    margin-left: 110px;
+    margin-top: -280px;
+    width: 300px;
+}
+
+p{
+    font-family: 'Pixelify Sans', cursive;
+    font-size: 25px;
+}
+
+.ladrostats {
+    position:static;
+    
+            text-align: right; /* Alinea los stats del ladrón a la derecha */
+            margin-right: 25px;
+        }
+
+.linkstats{
+    position:static;
+    margin-left: 480px;
+}
+
+.button-container {
+    position: absolute;
+    margin-top: -150px;
+    margin-left: 500px;
+}
+
+    </style>
+
+
+
+<BR>
+    <BR>
+    <p class="ladrostats">Estado de SagasEnojado:</p>
+    <p  class="ladrostats">Vida: <span id="vidaLadron"></span></p>
+    <p class="ladrostats">Ataque: <span id="ataqueLadron"></span></p>
+    
+<img id="ladron" src="/imagenes/meta.gif" alt="">
+
+    <!-- Más contenido HTML -->
+    
+    <p class="linkstats" >Tus estadísticas:</p>
+    <p class="linkstats">Vida: <span id="vidaJugador"></span></p>
+    <p class="linkstats">Ataque: <span id="ataqueJugador"></span></p>
+    
+<img id="link" src="vaatibata.png" alt="">
+
+    <!-- Botones y scripts -->
+    
+<div class="button-container">
+    <button class="action" onclick="realizarAtaque()">Realizar Ataque</button>
+    <button class="action" onclick="actualizarStats()">Actualizar Stats</button>
+    <!-- Agrega un botón para ver y usar los ítems -->
+<button class="action" onclick="usarPocion()">Ver Inventario</button>
+</div>
+<!-- Agrega un elemento para mostrar los ítems del inventario -->
+<div id="inventario" style="display: none;"></div>
+
+    <script src="/js/stats.js"></script>
+    
+    <script>
+        // Verifica si las estadísticas del jugador ya están en el LocalStorage
+        if (!localStorage.getItem("vida") || !localStorage.getItem("ataque")) {
+            // Si no están en el LocalStorage, inicializa las estadísticas del jugador
+            jugadorStats = new JugadorStats();
+    
+            // Guarda las estadísticas iniciales en el LocalStorage
+            localStorage.setItem("vida", jugadorStats.vida);
+            localStorage.setItem("ataque", jugadorStats.ataque);
+        } else {
+            // Si las estadísticas ya están en el LocalStorage, recupéralas y actualiza la instancia de jugadorStats
+            jugadorStats = new JugadorStats();
+            jugadorStats.vida = parseInt(localStorage.getItem("vida"));
+            jugadorStats.ataque = parseInt(localStorage.getItem("ataque"));
+        }
+    
+        // Verifica si los valores son válidos
+        if (!isNaN(jugadorStats.vida) && !isNaN(jugadorStats.ataque)) {
+            document.getElementById("vidaJugador").textContent = jugadorStats.vida;
+            document.getElementById("ataqueJugador").textContent = jugadorStats.ataque;
+        } else {
+            // Valores predeterminados si no se encuentran en el LocalStorage
+            document.getElementById("vidaJugador").textContent = jugadorStats.vida;
+            document.getElementById("ataqueJugador").textContent = jugadorStats.ataque;
+        }
+    
+        var vidaLadron = 99999; // Cambiado a 35
+        var ataqueLadron = 2; // Cambiado a 10
+        var ladronDerrotado = false;
+    
+        document.getElementById("vidaLadron").textContent = vidaLadron;
+        document.getElementById("ataqueLadron").textContent = ataqueLadron;
+    
+        function realizarAtaque() {
+            if (ladronDerrotado) {
+                alert("Ya has derrotado al ladrón. No puedes pelear nuevamente.");
+                return;
+            }
+    
+            var danoJugador = Math.floor(Math.random() * (jugadorStats.ataque / 2) + jugadorStats.ataque / 2);
+            var danoLadron = Math.floor(Math.random() * (ataqueLadron / 2) + ataqueLadron / 2);
+    
+            vidaLadron -= danoJugador;
+            document.getElementById("vidaLadron").textContent = vidaLadron; // Actualiza la vida del ladrón
+            alert("¡Realizaste " + danoJugador + " puntos de daño al ladrón!");
+    
+            if (vidaLadron <= 0) {
+                alert("¡Has derrotado a Sagastiño!");
+                ladronDerrotado = true;
+    
+                // Actualiza las estadísticas del jugador
+                jugadorStats.aumentarVida(10000); // Aumenta la vida del jugador en 20
+                jugadorStats.aumentarAtaque(10000); // Aumenta el ataque del jugador en 10
+    
+                // Guarda las estadísticas actualizadas en el LocalStorage
+                localStorage.setItem("vida", jugadorStats.vida);
+                localStorage.setItem("ataque", jugadorStats.ataque);
+    
+                setTimeout(function () {
+                    window.location.href = 'mapapenultimo.html'; // Cambia el nombre del archivo si es necesario
+                }, 1000);
+            } else {
+                jugadorStats.vida -= danoLadron; // Actualiza la vida del jugador
+                document.getElementById("vidaJugador").textContent = jugadorStats.vida; // Actualiza la vida del jugador
+                alert("Sagastiño te hizo " + danoLadron + " puntos de daño.");
+    
+                if (jugadorStats.vida <= 0) { // Verifica la vida del jugador
+                    alert("¡El Sagastiño te ha derrotado!");
+    
+                    setTimeout(function () {
+                        window.location.href = 'index.2va.html'; // Cambia el nombre del archivo si es necesario
+                    }, 1000);
+                }
+            }
+        }
+    
+        function actualizarStats() {
+            alert("Tus estadísticas actualizadas:\nVida: " + jugadorStats.vida + "\nAtaque: " + jugadorStats.ataque);
+        }
+    </script>
+
+<script src="/js/musica.js"></script>
+<script src="/js/audioMapa.JS"></script>
+
+  <script>
+
+    // Llama a la función para reproducir el audio cuando la ventana se carga completamente
+
+    window.onload = reproducirAudio;
+
+  </script>
+
+</body>
+</html>

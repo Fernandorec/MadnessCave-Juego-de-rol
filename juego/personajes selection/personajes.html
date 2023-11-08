@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/imagenes/icon.png
+    " type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500&display=swap" rel="stylesheet">
+    <title>MadnessCave</title>
+    <style>
+body {
+    width: 100%;
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+}
+
+        /* Estilos para el cuerpo y el elemento HTML */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Resto de tus estilos CSS aquí... */
+        .card {
+            display: inline-block;
+            margin-left: 320px;
+            margin-top: 10px;
+            text-align: center;
+            width: 320px;
+        }
+
+        #seleccion {
+            position: static;
+            font-size: 90px;
+            text-align: center;
+            font-family: 'Pixelify Sans', cursive;
+        }
+
+        /* Tus otros estilos CSS aquí... */
+    </style>
+</head>
+<body>
+    <h1 id="seleccion">Selecciona un personaje</h1>
+
+    <a href="/link/index2.html">
+        <article class="card">
+            <img src="disenocard.png"  alt="">
+            <img src="linkss.png" alt="">
+        </article>
+    </a>
+    <a href="/vaati/index.2va.html">
+        <article class="card">
+            <img src="vaati.png" alt="">
+            <img src="vaatiss-removebg-preview.png" alt="">
+        </article>
+    </a>
+<style>
+    article{
+        position: relative;
+        width: 250px;
+        transition: all .3s ease;
+    }
+
+    article img:first-child{
+        box-shadow: 0 60px 60px
+    -60px rgba(0, 30, 255, 0.5);
+        border-radius: 4px;
+        object-fit: cover;
+        width: 100%;
+   
+    }
+
+    article img:last-child{
+    position: absolute;    
+    width: 200px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(25%);
+    transition: .3 ease;
+    opacity: 0;
+    }
+
+article:hover{
+transform: 
+    perspective(250px)
+    rotateX(10deg)
+    translateY(-5%)
+    translateZ(0);
+}
+
+article::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+        to bottom,
+        transparent 10%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0) 95%
+    );
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+article:hover::before{
+    opacity: 1;
+}
+
+article:hover img:last-child{
+    opacity: 1;
+    transform: translateY(10%);
+}
+
+
+</style>
+
+
+
+</body>
+</html>

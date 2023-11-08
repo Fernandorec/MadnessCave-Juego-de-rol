@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MadnessCave</title>
+    <link rel="shortcut icon" href="/imagenes/icon.png
+    " type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<style>
+    html {
+  height: 100%;
+}
+body {
+    background-image: url("/imagenes/trifuerza.png"); /* Establece la imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen de fondo para cubrir todo el cuerpo */
+    background-position: center; /* Ajusta la posición de la imagen de fondo al centro */
+
+}
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.button_slide {
+  color: #FFF;
+  border: 2px solid rgb(216, 2, 134);
+  border-radius: 0px;
+  padding: 18px 36px;
+  display: inline-block;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #D80286;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+  margin-left: 700px;
+  margin-top: 120px;
+  width: 180px;
+  text-align: center;
+  font-family: 'Lilita One', cursive;
+}
+
+.slide_down:hover {
+  box-shadow: inset 0 100px 0 0 #D80286;
+}
+
+.slide_right:hover {
+  box-shadow: inset 400px 0 0 0 #D80286;
+}
+
+.slide_left:hover {
+  box-shadow: inset 0 0 0 50px #D80286;
+}
+
+.slide_diagonal:hover {
+  box-shadow: inset 400px 50px 0 0 #D80286;
+}
+
+#outer {
+  width: 364px;
+  margin: 50px auto 0 auto;
+  text-align: center;
+}
+</style>
+<br>
+<a href="/personajes selection/personajes.html">
+<div class="button_slide slide_left">iNICIAR JUEGO</div>
+</a>
+<br>
+<br>
+<a href="/sub/instrucciones.html">
+<div class="button_slide slide_left">COMO SE JUEGA</div>
+</a>
+<br>
+<br>
+<a href="/sub/derecho.html">
+<div class="button_slide slide_left">DERECHOS DE AUTOR</div>
+</a>
+<script>
+function irAIndex2() {
+    // Redirige al usuario a index2.html
+    window.location.href = 'index2.html'; // Ajusta la ruta según sea necesario
+}
+</script>
+<script src="/js/musica.js"></script>
+<script src="/js/audioMapa.JS"></script>
+
+  <script>
+
+    // Llama a la función para reproducir el audio cuando la ventana se carga completamente
+
+    window.onload = reproducirAudioini;
+</script>
+</body>
+</html>
