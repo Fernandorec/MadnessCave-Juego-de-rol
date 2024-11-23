@@ -1,0 +1,122 @@
+.box {
+  height: 268px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: background-color 1s;
+  padding: 0;
+}
+
+.col-custom {
+  flex: 0 0 14.2%;
+  max-width: 12.5%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#box1:hover,
+#box2:hover,
+#box3:hover,
+#box4:hover,
+#box5:hover,
+#box6:hover,
+#box7:hover,
+#box8:hover,
+#box9:hover,
+#box10:hover,
+#box11:hover,
+#box12:hover,
+#box13:hover,
+#box14:hover {
+  background-color: rgb(32, 31, 63);
+}
+
+.Departamento {
+  height: 100%;
+  line-height: 228px;
+  font-style: italic;
+  font-weight: 350;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 17px;
+  margin: 0;
+  color: white;
+}
+
+#box1:hover,
+#box2:hover,
+#box3:hover,
+#box4:hover,
+#box5:hover,
+#box6:hover,
+#box7:hover,
+#box8:hover,
+#box9:hover,
+#box10:hover,
+#box11:hover,
+#box12:hover,
+#box13:hover,
+#box14:hover {
+  line-height: 228px;
+
+}
+
+
+#box1 {
+  background-color: #6e0d83;
+}
+
+#box2 {
+  background-color: #720074;
+}
+
+#box3 {
+  background-color: #7f005f;
+}
+
+#box4 {
+  background-color: #6e0d83;
+}
+
+#box5 {
+  background-color: #8f2c8d;
+}
+
+#box6 {
+  background-color: #ce52cb;
+}
+
+#box7 {
+  background-color: #ce52cb;
+}
+
+#box8 {
+  background-color: #8f2c8d;
+}
+
+#box9 {
+  background-color: #6e0d83;
+}
+
+#box10 {
+  background-color: #7f005f;
+}
+
+#box11 {
+  background-color: #720074;
+}
+
+#box12 {
+  background-color: #6e0d83;
+}
+
+#box13 {
+  background-color: #6e0d83;
+}
+
+#box14 {
+  background-color: #720074;
+}

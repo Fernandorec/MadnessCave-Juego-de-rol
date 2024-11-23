@@ -1,0 +1,189 @@
+/* Hotel-Mediterraneo.css */
+
+#seccion {
+    margin-left: 75px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.carousel {
+    max-width: 615px; /* Ajusta el ancho del carrusel */
+    position: absolute;
+    margin-left: 80px;
+    
+  }
+  
+  .carousel .carousel-item img {
+    height: 500px; /* Ajusta la altura de las imágenes */
+    object-fit: cover; /* Ajusta cómo se muestra la imagen dentro de su contenedor */
+
+}
+  
+.Datos{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 725px;
+    top: 170px;
+}
+.Summit-and-budget {
+    display: flex; /* Activar Flexbox */
+    align-items: center; /* Centrar verticalmente los elementos dentro del contenedor */
+    justify-content: space-between; /* Distribuir espacio entre los elementos */
+    width: 200px;
+    margin-left: 80px;
+    padding: 10px; /* Mantener el padding aquí si lo deseas */
+}
+
+.Budget {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px; /* Añadir margen a la derecha para separar el presupuesto del botón */
+}
+
+.Boton {
+    display: flex; /* Asegúrate de que el botón esté centrado dentro de su contenedor */
+}
+
+.Input-Precio {
+    height: 20px;
+    width: 60px;
+
+}
+
+#Texto-Budget{
+    text-align: center;
+}
+
+/* Los estilos del botón permanecen igual */
+.Subir-Boton {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: #2e2975ce;
+    padding: 1em 2em; /* Ajustar este padding según lo necesites */
+    border: none;
+    border-radius: 25px; /* Valor alto para un borde ovalado */
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    width: 120px; /* Aumenta el ancho para que sea más ovalado */
+    height: 50px; /* Mantén la altura */
+    display: flex; /* Usa flexbox para centrar el texto */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    margin-left: 37px;
+}
+
+.Subir-Boton span:not(:nth-child(6)) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 35px;
+    width: 35px;
+    background-color: #3d2669;
+    border-radius: 50%;
+    transition: .6s ease;
+}
+
+.Subir-Boton span:nth-child(6) {
+    position: relative;
+}
+
+.Subir-Boton span:nth-child(1) {
+    transform: translate(-3.3em, -4em);
+}
+
+.Subir-Boton span:nth-child(2) {
+    transform: translate(-6em, 1.3em);
+}
+
+.Subir-Boton span:nth-child(3) {
+    transform: translate(-.2em, 1.8em);
+}
+
+.Subir-Boton span:nth-child(4) {
+    transform: translate(3.5em, 1.4em);
+}
+
+.Subir-Boton span:nth-child(5) {
+    transform: translate(3.5em, -3.8em);
+}
+
+.Subir-Boton:hover span:not(:nth-child(6)) {
+    transform: translate(-50%, -50%) scale(4);
+    transition: 1.5s ease;
+}
+
+.Subir-Boton .text {
+    position: relative; /* Mantiene el flujo normal */
+    z-index: 1; /* Asegúrate de que esté por encima de los círculos */
+}
+
+
+
+/* From Uiverse.io by adamgiebl */ 
+.Input-Precio{
+    padding: 8px;
+    font-size: 1rem;
+    width: 60px;
+    border-radius: 1rem;
+    color: purple;
+    cursor: pointer;
+    outline-color: purple;
+    text-align: center;
+  }
+  
+/* From Uiverse.io by PriyanshuGupta28 */ 
+.checkbox-wrapper input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-wrapper .terms-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-wrapper .terms-label .label-text {
+  margin-left: 10px;
+}
+
+.checkbox-wrapper .checkbox-svg {
+  width: 30px;
+  height: 30px;
+}
+
+.checkbox-wrapper .checkbox-box {
+  fill: rgba(207, 205, 205, 0.425);
+  stroke: #8c00ff;
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  transition: stroke-dashoffset 0.6s ease-in;
+}
+
+.checkbox-wrapper .checkbox-tick {
+  stroke: #8c00ff;
+  stroke-dasharray: 172;
+  stroke-dashoffset: 172;
+  transition: stroke-dashoffset 0.6s ease-in;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .terms-label .checkbox-box,
+  .checkbox-wrapper input[type="checkbox"]:checked + .terms-label .checkbox-tick {
+  stroke-dashoffset: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+    -webkit-appearance: none;  /* Chrome, Safari, Edge */
+    appearance: none; /* Propiedad estándar */
+}
+
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    margin: 0; /* Quita cualquier espacio sobrante */
+}

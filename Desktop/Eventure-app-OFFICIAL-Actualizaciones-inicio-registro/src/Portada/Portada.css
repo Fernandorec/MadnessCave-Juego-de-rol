@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #2e004c;
+    color: white;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #3c0c68;
+  }
+  
+  .logo {
+    font-size: 28px;
+    font-family: "serif";
+  }
+  
+  .nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .main-content {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .title {
+    font-size: 48px;
+    margin: 0;
+  }
+  
+  .subtitle {
+    font-size: 18px;
+    color: #5c1769;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 20px;
+  }
+  
+  .action-button {
+    background-color: transparent;
+    border: 2px solid #5c1769;
+    color: #5c1769;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .action-button:hover {
+    background-color: #f2b3ff;
+    color: #3c0c68;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center; /* Centers the items horizontally */
+    align-items: center; /* Centers the items vertically if needed */
+    flex-wrap: wrap; /* Allows items to wrap to the next line if necessary */
+    margin: 20px 0; /* Add vertical spacing above and below */
+  }
+  
+  .event-image {
+    border-radius: 30px;
+    width: 200px;
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 350px;
+    width: 250px;
+  }
+  
+  .Botton {
+    border-radius: 20px;
+    background-color: transparent;
+    color: #5c1769;
+  }
+    
+
+  .hidden {
+    display: none;
+  }

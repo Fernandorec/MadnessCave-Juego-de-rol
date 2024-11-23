@@ -1,0 +1,42 @@
+#seccion {
+    margin-left: 75px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+
+}
+
+.table-container {
+    display: flex;
+    justify-content: baseline;
+    flex-wrap: wrap;
+    gap: 70px; /* Ajusta el espacio según sea necesario */
+    margin-left: 100px;
+}
+
+table {
+    border-collapse: separate;
+}
+
+td {
+    border: 2px solid green !important;
+    text-align: center;
+    width: 220px;
+    height: 250px; /* Aumenta la altura de las celdas aquí */
+    display: flex; /* Usar Flexbox para centrar contenido */
+    flex-direction: column; /* Alinear en columna */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: flex-start; /* Alinear en la parte superior */
+    overflow: hidden; /* Ocultar contenido que sobresalga */
+}
+
+img.imagen {
+    max-width: 90%; /* Asegúrate de que la imagen no exceda el ancho de la celda */
+    height: auto; /* Ajustar automáticamente la altura para mantener la proporción */
+    margin-top: 15px; /* Añadir margen superior para empujar la imagen hacia abajo */
+}
+
+.LibertadLugares {
+    margin-top: 20px;
+    color: black;
+}

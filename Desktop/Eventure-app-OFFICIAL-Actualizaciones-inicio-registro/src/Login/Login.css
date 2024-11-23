@@ -1,0 +1,105 @@
+
+.Boton {
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+    align-items: center; /* Centra el botón verticalmente */
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.Subir-Boton {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: #2e2975ce;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    width: 168.5px; /* Controla el tamaño del botón */
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0; /* Elimina el margen izquierdo */
+}
+
+.Subir-Boton span:not(:nth-child(6)) {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    height: 35px;
+    width: 45px;
+    background-color: #3d2669;
+    border-radius: 50%;
+    transition: .6s ease;
+}
+
+.Subir-Boton span:nth-child(6) {
+    position: relative;
+}
+
+.Subir-Boton span:nth-child(1) {
+    transform: translate(-3.3em, -4em);
+}
+
+.Subir-Boton span:nth-child(2) {
+    transform: translate(-6em, 1.3em);
+}
+
+.Subir-Boton span:nth-child(3) {
+    transform: translate(-.2em, 1.8em);
+}
+
+.Subir-Boton span:nth-child(4) {
+    transform: translate(3.5em, 1.4em);
+}
+
+.Subir-Boton span:nth-child(5) {
+    transform: translate(3.5em, -3.8em);
+}
+
+.Subir-Boton:hover span:not(:nth-child(6)) {
+    transform: translate(-50%, -50%) scale(4);
+    transition: 1.5s ease;
+}
+
+.Subir-Boton .text {
+    position: relative;
+    z-index: 1;
+}
+
+
+@keyframes moveLeft {
+    0% {
+      transform: translateX(0); /* Empezamos desde la posición original */
+    }
+    100% {
+      transform: translateX(-90%); /* Movimiento hacia la izquierda */
+    }
+  }
+  
+  @keyframes moveRight {
+    0% {
+      transform: translateX(-100%); /* Empezamos desde la izquierda */
+    }
+    100% {
+      transform: translateX(0); /* Regresamos a la posición original */
+    }
+  }
+  
+  .moved {
+    animation: moveLeft 0.5s forwards; /* Cuando el estado es true, mueve a la izquierda */
+  }
+  
+  .movedBack {
+    animation: moveRight 0.5s forwards; /* Cuando el estado es false, mueve de vuelta */
+  }
+  
+  .Iniciar-sesion{
+    width: 50%;
+    height: 550px;
+    margin-left: 60px;
+}
