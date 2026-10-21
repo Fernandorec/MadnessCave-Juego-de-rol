@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="/imagenes/icon.png
+    " type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>MadnessCave</title>
+</head>
+<body>
+    
+
+    <style>
+html, body {
+    height: 80%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+/* Estilos para los elementos img */
+.npc-img {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    z-index: 2; /* Coloca los elementos por encima del canvas (z-index más alto) */
+}
+
+/* Estilos para el canvas */
+#CanvasG {
+    position: absolute;
+    z-index: 1; /* Coloca el canvas debajo de los elementos img (z-index más bajo) */
+}
+
+/* Estilos para el botón */
+#botonstats {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 3; /* Coloca el botón delante de todos los elementos */
+}
+
+#botonClean{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 3; /* Coloca el botón delante de todos los elementos */
+}
+
+</style>
+</head>
+<body onload="inicializar();" onkeydown="onKeyDown(event);" onkeyup="onKeyUp(event);">
+<!-- Botón para mostrar estadísticas -->
+<button id="botonstats" onclick="mostrarStats()">Mostrar Stats</button>
+<!-- Agrega un botón para ver y usar los ítems -->
+
+<!-- Agrega un elemento para mostrar los ítems del inventario -->
+<div id="inventario" style="display: none;"></div>
+
+
+<a><img id="npc" src="/imagenes/npc.png"   class="npc-img" style="left: 1250px; top: 330px;" onclick="tocarnpc()"></a>
+
+<a><img id="npc2" src="/imagenes/Marco.png"   class="npc-img" style="left: 550px; top: 340px;" onclick="tocarmarco()"></a>
+
+<a><img id="npc2" src="/imagenes/rey.png"   class="npc-img" style="left: 440px; top:600px;" onclick="tocarey()"></a>
+
+
+<style>
+  </style>
+
+<script>
+    var npc = false; // Variable para controlar si se ha tocado la calaca
+    var marco = false
+    var rey = false
+    var jugadorStats = {
+        ataque: 0, // Inicialmente el ataque del jugador es 0 
+        // Otras propiedades de estadísticas aquí
+    };
+
+  
+
+    function tocarey() {
+        if (!rey) {
+            alert("Xd")
+
+
+        }
+    }
+
+    //TOCAR AL NOOB DE ROBLOZ
+    function tocarnpc() {
+        if (!npc) {
+                var opcion = prompt("Que deseas hacer: Interactuar (1) o Pelear (2):");
+               switch (opcion) {
+    case "1":
+    alert("(OUF)");
+    alert("xd")
+    alert("OUF")
+
+        break;
+    case "2":
+        alert("Has decidido enfrentar tus miedos. Redirigiendo a otra pantalla...");
+        window.location.href = "sagasbata.html"; // Cambia esto por la URL de la pantalla de pelea.
+        break;
+    default:
+        alert("Opción no válida.");
+        break;
+}
+
+            } else {
+            }
+        }
+
+        //TOCAR A MARCo
+        function tocarmarco() {
+        if (!marco) {
+            marco = true;
+              alert("Xd")
+            } else {
+            }
+        }
+        
+</script>
+
+
+<canvas id="CanvasG" width="1720" height="768"></canvas>
+
+<!-- Div para mostrar estadísticas -->
+<div id="statsDiv" style="position: absolute; top: 20px; left: 20px;"></div>
+
+<script src="/js/main.js"></script>
+<script src="/js/stats.js"></script>
+<script>
+
+
+var canvasC = document.getElementById("CanvasG");
+var pant = canvasC.getContext("2d");
+var anchoPantalla = 1720;
+var altoPantalla = 768;
+var teclap = 0;
+var backgroundImg = new Image();
+backgroundImg.src = "/imagenes/primcueva.png";
+var sprite = new Image();
+sprite.src = "link.png";
+var indiceX = 0;
+var indiceY = 0;
+var linkX = 0;
+var linkY = 0;
+var personajeAnimado = false;
+var frameCount = 0;
+var velocidadAnimacion = 8; // Ajusta esta velocidad según tu preferencia
+
+function inicializar() {
+    moverPersonaje(1310, 60);
+    requestAnimationFrame(dibujaCanvas);
+
+    // Agrega el evento onclick al personaje de Zelda
+    var personajeZeldaDiv = document.getElementById("personajeZelda");
+    personajeZeldaDiv.onclick = personajeZeldaClick;
+}
+
+function moverPersonaje(x, y) {
+    linkX = x;
+    linkY = y;
+}
+
+function dibujaCanvas() {
+    pant.drawImage(backgroundImg, 0, 0, anchoPantalla, altoPantalla);
+    pant.drawImage(sprite, indiceX * 32, indiceY * 32, 32, 32, linkX, linkY, 90, 90);
+
+    pant.fillStyle = 'white';
+    pant.font = 'italic bold 18pt Times New Roman';
+    pant.fillText("Tecla Presionada: " + teclap + ", X: " + linkX + " Y: " + linkY, 10, 30, (anchoPantalla - 10));
+
+    linkX = Math.min(Math.max(linkX, 0), anchoPantalla - 90);
+    linkY = Math.min(Math.max(linkY, 0), altoPantalla - 90);
+
+    if (personajeAnimado) {
+        frameCount++;
+        if (frameCount >= velocidadAnimacion) {
+            indiceX = indiceX + 1;
+            if (indiceX > 4) {
+                indiceX = 0;
+            }
+            frameCount = 0;
+        }
+    }
+
+    requestAnimationFrame(dibujaCanvas);
+}
+
+function onKeyDown(event) {
+    teclap = event.keyCode;
+
+    switch (teclap) {
+        case 83:
+            linkY = linkY + 10;
+            indiceY = 0;
+            break;
+        case 65:
+            linkX = linkX - 10;
+            indiceY = 1;
+            break;
+        case 87:
+            linkY = linkY - 10;
+            indiceY = 2;
+            break;
+        case 68:
+            linkX = linkX + 10;
+            indiceY = 3;
+            break;
+        default:
+            break;
+    }
+
+    personajeAnimado = true;
+}
+
+function onKeyUp(event) {
+    personajeAnimado = false;
+}
+
+function tocarZelda() {
+    if (!zeldaTocada) {
+        zeldaTocada = true;
+        jugadorStats.aumentarAtaque(10); // Aumenta el ataque del jugador en 5
+        alert("EL MUNDO ESTA EN PELIGRO Y ES PELIGROSO IR SIN ARMAS. TOMA ESTA ESPADA PARA DEFENDERTE. Tu ataque subio " + jugadorStats.ataque)+"";
+        // Puedes agregar aquí la lógica adicional que desees.
+    } else {
+        alert("¡Ya has hablado con Zelda!");
+    }
+}
+
+// Función que se ejecuta cuando se hace clic en el personaje de Zelda
+function personajeZeldaClick() {
+    alert("¡Has hecho clic en Zelda!");
+    // Puedes agregar aquí la lógica que deseas ejecutar al hacer clic en Zelda.
+}
+
+
+// Guarda los datos en el LocalStorage antes de redirigir
+localStorage.setItem("vida", jugadorStats.vida);
+localStorage.setItem("ataque", jugadorStats.ataque);
+
+
+function mostrarStats() {
+            localStorage.setItem("vida", jugadorStats.vida);
+            localStorage.setItem("ataque", jugadorStats.ataque);
+            alert("Vida: " + jugadorStats.vida + "\nAttack: " + jugadorStats.ataque);
+}
+</script>
+
+
+
+</body>
+</html>
